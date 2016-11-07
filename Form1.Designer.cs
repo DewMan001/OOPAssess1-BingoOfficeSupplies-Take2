@@ -1,4 +1,4 @@
-﻿namespace OOPAssess1_BingoOfficeSupplies_Take2
+﻿namespace OOPAssess1_BingoOfficeSupplies
 {
     partial class Form1
     {
