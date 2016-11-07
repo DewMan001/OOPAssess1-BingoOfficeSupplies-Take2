@@ -38,43 +38,51 @@
             // 
             // imgBox_Display
             // 
-            this.imgBox_Display.Location = new System.Drawing.Point(347, 35);
+            this.imgBox_Display.Location = new System.Drawing.Point(520, 54);
+            this.imgBox_Display.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.imgBox_Display.Name = "imgBox_Display";
-            this.imgBox_Display.Size = new System.Drawing.Size(137, 132);
+            this.imgBox_Display.Size = new System.Drawing.Size(206, 203);
+            this.imgBox_Display.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgBox_Display.TabIndex = 1;
             this.imgBox_Display.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(344, 170);
+            this.label1.Location = new System.Drawing.Point(516, 262);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Product Price:";
             // 
             // lBox_ProductsDisplay
             // 
             this.lBox_ProductsDisplay.FormattingEnabled = true;
-            this.lBox_ProductsDisplay.Location = new System.Drawing.Point(12, 12);
+            this.lBox_ProductsDisplay.ItemHeight = 20;
+            this.lBox_ProductsDisplay.Location = new System.Drawing.Point(18, 18);
+            this.lBox_ProductsDisplay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lBox_ProductsDisplay.Name = "lBox_ProductsDisplay";
-            this.lBox_ProductsDisplay.Size = new System.Drawing.Size(123, 264);
+            this.lBox_ProductsDisplay.Size = new System.Drawing.Size(182, 404);
             this.lBox_ProductsDisplay.TabIndex = 0;
+            this.lBox_ProductsDisplay.SelectedIndexChanged += new System.EventHandler(this.lBox_ProductsDisplay_SelectedIndexChanged_1);
             // 
             // lbl_SalePrice
             // 
             this.lbl_SalePrice.AutoSize = true;
-            this.lbl_SalePrice.Location = new System.Drawing.Point(424, 170);
+            this.lbl_SalePrice.Location = new System.Drawing.Point(636, 262);
+            this.lbl_SalePrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_SalePrice.Name = "lbl_SalePrice";
-            this.lbl_SalePrice.Size = new System.Drawing.Size(54, 13);
+            this.lbl_SalePrice.Size = new System.Drawing.Size(81, 20);
             this.lbl_SalePrice.TabIndex = 3;
             this.lbl_SalePrice.Text = "<VALUE>";
             // 
             // btn_Sale
             // 
-            this.btn_Sale.Location = new System.Drawing.Point(347, 186);
+            this.btn_Sale.Location = new System.Drawing.Point(520, 286);
+            this.btn_Sale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Sale.Name = "btn_Sale";
-            this.btn_Sale.Size = new System.Drawing.Size(137, 28);
+            this.btn_Sale.Size = new System.Drawing.Size(206, 43);
             this.btn_Sale.TabIndex = 4;
             this.btn_Sale.Text = "Submit Order";
             this.btn_Sale.UseVisualStyleBackColor = true;
@@ -82,14 +90,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 288);
+            this.ClientSize = new System.Drawing.Size(744, 443);
             this.Controls.Add(this.btn_Sale);
             this.Controls.Add(this.lbl_SalePrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.imgBox_Display);
             this.Controls.Add(this.lBox_ProductsDisplay);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.imgBox_Display)).EndInit();
@@ -99,12 +108,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox imgBox_Display;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lBox_ProductsDisplay;
         private System.Windows.Forms.Label lbl_SalePrice;
         private System.Windows.Forms.Button btn_Sale;
+        public System.Windows.Forms.PictureBox imgBox_Display;
     }
 }
 

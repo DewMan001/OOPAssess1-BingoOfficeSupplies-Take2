@@ -34,26 +34,10 @@ namespace OOPAssess1_BingoOfficeSupplies
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lBox_ProductsDisplay.SelectedIndex = 0;
+           lBox_ProductsDisplay.SelectedIndex = 1;
         }
 
-
-
-
-        private void lBox_ProductsDisplay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectedItem = lBox_ProductsDisplay.SelectedIndex;
-
-            double salePrice = calcSalePrice(prodPriceArray[selectedItem]);
-
-            lbl_SalePrice.Text = salePrice.ToString();
-
-            //file path for the image
-            string imgPath = "../../Resources/" + prodPicArray[selectedItem];
-
-            imgBox_Display.Image = Image.FromFile(imgPath);
-
-        }
+        
 
         private double calcSalePrice(double originalPrice)
         {
@@ -161,7 +145,18 @@ namespace OOPAssess1_BingoOfficeSupplies
 
         }
 
+        private void lBox_ProductsDisplay_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int selectedItem = lBox_ProductsDisplay.SelectedIndex;
 
+            double salePrice = calcSalePrice(prodPriceArray[selectedItem]);
 
+            lbl_SalePrice.Text = salePrice.ToString();
+
+            //file path for the image
+            string imgPath = "../../Resources/" + prodPicArray[selectedItem];
+
+            imgBox_Display.Image = Image.FromFile(imgPath);
+        }
     }
 }
