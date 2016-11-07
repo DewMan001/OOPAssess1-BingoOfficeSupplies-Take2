@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -77,9 +78,46 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Assignment1 UML C#Project%281%29.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cute_thumb_bear_usb_flash_drive_4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eraser.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HolePunch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paperclip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Products.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stapler.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThumbDrive.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
