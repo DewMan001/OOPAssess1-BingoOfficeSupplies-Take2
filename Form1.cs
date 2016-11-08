@@ -136,7 +136,6 @@ namespace OOPAssess1_BingoOfficeSupplies
             }
 
             double fullPrice;
-
         }
 
 
