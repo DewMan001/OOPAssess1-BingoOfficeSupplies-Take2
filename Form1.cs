@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace OOPAssess1_BingoOfficeSupplies
+namespace OOPAssess1_BingoOfficeSupplies_Take2
 {
     public partial class Form1 : Form
     {
@@ -21,6 +21,16 @@ namespace OOPAssess1_BingoOfficeSupplies
             string productsPath = "../../Resources/Products.txt";
             buildArray(productsPath);
         }
+
+        //public values for passing values between forms
+        public int sentInvoiceNumber { get; set; }
+        public int sentProdStock { get; set; }
+        public int sentStockDesired { get; set; }
+        public string sentProductName { get; set; }
+        public double sentTotalPrice { get; set; }
+        public double sentProductPrice { get; set; }
+
+
 
         //the various arrays for the product attributes
         string[] prodNumArray = new string[20];
@@ -119,10 +129,26 @@ namespace OOPAssess1_BingoOfficeSupplies
             //picking up the stock the customer wants
             int stockDesired = Int32.Parse(Microsoft.VisualBasic.Interaction.InputBox("How much stock is desired?" + newInvoiceNumber, "Stock desired", "1", 0, 0));
 
+            //pulling in the price of an individual unit
+            double productPrice = prodPriceArray[selectedItem];
+
+            //pulling in the name of the product
+            string productName = prodNameArray[selectedItem];
+
+            //calculating the full price
+            double fullPrice;
+            fullPrice = stockDesired * prodPriceArray[selectedItem];
 
             //comparing the stockDesired to the stockRemaining
             if (stockDesired <= prodStock)
             {
+                sentInvoiceNumber = newInvoiceNumber;
+                sentProdStock = prodStock;
+                sentProductName = productName;
+                sentStockDesired = stockDesired;
+                sentTotalPrice = fullPrice;
+                sentProductPrice = productPrice;
+
                 MessageBox.Show("There is enough stock");
 
                 //editing the prodStock in the array
@@ -135,8 +161,7 @@ namespace OOPAssess1_BingoOfficeSupplies
                 MessageBox.Show("There is not enough stock. \n \n You tried to order " + stockDesired + ", but unfortunately we only have " + prodStock + ".");
             }
 
-            double fullPrice;
-            fullPrice = stockDesired * prodPriceArray[selectedItem];
+
         }
 
 
