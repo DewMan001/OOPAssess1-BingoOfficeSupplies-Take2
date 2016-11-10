@@ -136,6 +136,7 @@ namespace OOPAssess1_BingoOfficeSupplies
             }
 
             double fullPrice;
+            fullPrice = stockDesired * prodPriceArray[selectedItem];
         }
 
 
