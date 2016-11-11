@@ -21,12 +21,27 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
         private void saleSuccessful_Load(object sender, EventArgs e)
         {
-            int invoiceNumber = frm1.sentInvoiceNumber;
-            int productStock = frm1.sentProdStock;
-            int stockDesired = frm1.sentStockDesired;
-            string productName = frm1.sentProductName;
-            double productPrice = frm1.sentProductPrice;
-            double totalPrice = frm1.sentTotalPrice;
+
+            //pulling in all the variables from the first form
+            int invoiceNumber = Form1.sentInvoiceNumber;
+            int productStock = Form1.sentProdStock;
+            int stockDesired = Form1.sentStockDesired;
+            string productName = Form1.sentProductName;
+            double productPrice = Form1.sentProductPrice;
+            double totalPrice = Form1.sentTotalPrice;
+
+            //creating a string for the label text
+            string lblText;
+            lblText = "ORDER NUMBER: " + invoiceNumber
+                + "\n \n PRODUCT: " + productName
+                + "\n AMOUNT BEING ORDERED: " + stockDesired
+                + "\n STOCK REMAINING: " + productStock
+                + "\n INDIVIDUAL UNIT PRICE: " + productPrice
+                + "\n FULL ORDER PRICE: " + totalPrice
+                + "\n \n \n Are you sure you wish to go ahead with this order?";
+
+            //setting the label on the form to lblText
+            lbl_TextDisplay.Text = lblText;
         }
     }
 }

@@ -22,14 +22,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             buildArray(productsPath);
         }
 
-        //public values for passing values between forms
-        public int sentInvoiceNumber { get; set; }
-        public int sentProdStock { get; set; }
-        public int sentStockDesired { get; set; }
-        public string sentProductName { get; set; }
-        public double sentTotalPrice { get; set; }
-        public double sentProductPrice { get; set; }
-
+        
 
 
         //the various arrays for the product attributes
@@ -39,8 +32,17 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         double[] prodPriceArray = new double[20];
         string[] prodPicArray = new string[20];
 
+        //public values for passing values between forms
+        public static int sentInvoiceNumber { get; set; }
+        public static int sentProdStock { get; set; }
+        public static int sentStockDesired { get; set; }
+        public static string sentProductName { get; set; }
+        public static double sentTotalPrice { get; set; }
+        public static double sentProductPrice { get; set; }
+
+
         //an integer for the invoice number
-        int invoiceNum = 000000;
+        int invoiceNum;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -117,6 +119,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
         private void btn_Sale_Click(object sender, EventArgs e)
         {
+            saleSuccessful nextForm = new saleSuccessful();
             //incrementing the invoice number by one
             int newInvoiceNumber = invoiceNum + 1;
 
@@ -139,22 +142,20 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             double fullPrice;
             fullPrice = stockDesired * prodPriceArray[selectedItem];
 
+            sentInvoiceNumber = newInvoiceNumber;
+            sentProdStock = prodStock;
+            sentProductName = productName;
+            sentStockDesired = stockDesired;
+            sentTotalPrice = fullPrice;
+            sentProductPrice = productPrice;
+
             //comparing the stockDesired to the stockRemaining
             if (stockDesired <= prodStock)
             {
-                sentInvoiceNumber = newInvoiceNumber;
-                sentProdStock = prodStock;
-                sentProductName = productName;
-                sentStockDesired = stockDesired;
-                sentTotalPrice = fullPrice;
-                sentProductPrice = productPrice;
+                
 
-                MessageBox.Show("There is enough stock");
-
-                //editing the prodStock in the array
-                prodStockArray[selectedItem] = prodStock - stockDesired;
-
-                MessageBox.Show("There are " + prodStockArray[selectedItem] + " of this product left");
+                nextForm.Show();
+                
             }
             else if (stockDesired > prodStock)
             {
