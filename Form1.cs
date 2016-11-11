@@ -42,7 +42,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
 
         //an integer for the invoice number
-        int invoiceNum;
+        int invoiceNum = 000000;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         {
             saleSuccessful nextForm = new saleSuccessful();
             //incrementing the invoice number by one
-            int newInvoiceNumber = invoiceNum + 1;
+            invoiceNum = invoiceNum + 1;
 
             //pulling in the currently selected item
             int selectedItem = lBox_ProductsDisplay.SelectedIndex;
@@ -142,17 +142,17 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             double fullPrice;
             fullPrice = stockDesired * prodPriceArray[selectedItem];
 
-            sentInvoiceNumber = newInvoiceNumber;
-            sentProdStock = prodStock;
-            sentProductName = productName;
-            sentStockDesired = stockDesired;
-            sentTotalPrice = fullPrice;
-            sentProductPrice = productPrice;
+            
 
             //comparing the stockDesired to the stockRemaining
             if (stockDesired <= prodStock)
             {
-                
+                sentInvoiceNumber = invoiceNum;
+                sentProdStock = prodStock;
+                sentProductName = productName;
+                sentStockDesired = stockDesired;
+                sentTotalPrice = fullPrice;
+                sentProductPrice = productPrice;
 
                 nextForm.Show();
                 
