@@ -130,7 +130,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             int prodStock = prodStockArray[selectedItem];
 
             //picking up the stock the customer wants
-            int stockDesired = Int32.Parse(Microsoft.VisualBasic.Interaction.InputBox("How much stock is desired?" + newInvoiceNumber, "Stock desired", "1", 0, 0));
+            int stockDesired = Int32.Parse(Microsoft.VisualBasic.Interaction.InputBox("How much stock is desired?" + invoiceNum, "Stock desired", "1", 0, 0));
 
             //pulling in the price of an individual unit
             double productPrice = prodPriceArray[selectedItem];
