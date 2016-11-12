@@ -46,6 +46,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static string invProdName { get; set; }
         public static double invProdPrice { get; set; }
         public static int invStockDesired { get; set; }
+        public static double invTotalPrice { get; set; }
 
         public SalesInvoice invoiceGrab { get; set; }
         

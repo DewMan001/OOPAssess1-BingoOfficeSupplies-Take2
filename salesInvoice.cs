@@ -15,7 +15,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public int InvoiceNumber { get; set; }
         public string prodName { get; set; }
         public double prodPrice { get; set; }
-        public double prodStockDesired { get; set; }
+        public int prodStockDesired { get; set; }
         public double orderTotalValue { get; set; }
 
         public int calculateTotalValue(int individualPrice, int prodStockDesired)
