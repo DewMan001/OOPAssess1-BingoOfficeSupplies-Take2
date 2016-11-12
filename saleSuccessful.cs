@@ -43,5 +43,18 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //setting the label on the form to lblText
             lbl_TextDisplay.Text = lblText;
         }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Form1.sentInvoiceNumber = 0;
+            Form1.sentProdStock = 0;
+            Form1.sentStockDesired = 0;
+            Form1.sentProductName = "";
+            Form1.sentProductPrice = 0.0;
+            Form1.sentTotalPrice = 0.0;
+
+            //closing the form
+            this.Close();
+        }
     }
 }
