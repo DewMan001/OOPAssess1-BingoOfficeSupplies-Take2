@@ -22,7 +22,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             buildArray(productsPath);
         }
 
-        
+
 
 
         //the various arrays for the product attributes
@@ -31,7 +31,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         int[] prodStockArray = new int[20];
         double[] prodPriceArray = new double[20];
         string[] prodPicArray = new string[20];
-        
+
 
         //public values for passing values between forms
         public static int sentInvoiceNumber { get; set; }
@@ -41,7 +41,13 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static double sentTotalPrice { get; set; }
         public static double sentProductPrice { get; set; }
 
-        public SalesInvoice sales { get; set; }
+        //values for the salesInvoice
+        public static int invInvoiceNumber { get; set; }
+        public static string invProdName { get; set; }
+        public static double invProdPrice { get; set; }
+        public static int invStockDesired { get; set; }
+
+        public SalesInvoice invoiceGrab { get; set; }
         
 
         //an integer for the invoice number

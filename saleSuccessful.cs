@@ -74,8 +74,11 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             takeStock.InvoiceNumber = Form1.sentInvoiceNumber;
             takeStock.prodName = Form1.sentProductName;
             takeStock.prodPrice = Form1.sentProductPrice;
+            takeStock.prodStockDesired = Form1.sentStockDesired;
             takeStock.orderTotalValue = Form1.sentTotalPrice;
 
+            //throwing the takeStock back to Form1
+            
         }
     }
 }
