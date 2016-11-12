@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOPAssess1_BingoOfficeSupplies
+namespace OOPAssess1_BingoOfficeSupplies_Take2
 {
     class SalesInvoice
     {
         int userInvoiceNumber;
         string userProductNumber;
-        int userSalePrice;
+        double userSalePrice;
         int userAmtPurchased;
-        int userSaleValue;
+        double userSaleValue;
 
         public SalesInvoice(int invoiceNumber, string productNumber, int salePrice, int amtPurchased, int saleValue)
         {

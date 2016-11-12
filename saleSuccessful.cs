@@ -56,5 +56,22 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //closing the form
             this.Close();
         }
+
+        private void btn_Confirm_Click(object sender, EventArgs e)
+        {
+            //reducing the stock
+            //variables declaration
+            int stockDesired = Form1.sentStockDesired;
+            int prodStock = Form1.sentProdStock;
+
+            //reducing the stock
+            Form1.sentProdStock = prodStock - stockDesired;
+
+            //creating new sales invoice object
+            SalesInvoice takeStock = new SalesInvoice();
+
+            //filling the object with the details
+
+        }
     }
 }

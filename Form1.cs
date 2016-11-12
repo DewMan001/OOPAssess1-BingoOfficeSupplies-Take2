@@ -155,6 +155,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 sentProductPrice = productPrice;
 
                 nextForm.Show();
+
+                prodStockArray[selectedItem] = sentInvoiceNumber;
                 
             }
             else if (stockDesired > prodStock)
