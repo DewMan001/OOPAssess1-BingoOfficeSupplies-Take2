@@ -31,6 +31,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         int[] prodStockArray = new int[20];
         double[] prodPriceArray = new double[20];
         string[] prodPicArray = new string[20];
+        
 
         //public values for passing values between forms
         public static int sentInvoiceNumber { get; set; }
@@ -40,6 +41,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static double sentTotalPrice { get; set; }
         public static double sentProductPrice { get; set; }
 
+        public SalesInvoice sales { get; set; }
+        
 
         //an integer for the invoice number
         int invoiceNum = 000000;
