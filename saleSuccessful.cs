@@ -67,7 +67,9 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //reducing the stock
             Form1.sentProdStock = prodStock - stockDesired;
 
-          
+
+            Form1.storeData(Form1.sentInvoiceNumber, Form1.sentProductName, Form1.sentProductPrice, Form1.sentProductPrice, Form1.sentProdStock, Form1.sentCurrentItemIndex);
+
             this.Close();
 
             Form1.saleSuccessfulOpen = false;

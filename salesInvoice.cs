@@ -24,6 +24,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             totalValue = individualPrice * prodStockDesired;
             return totalValue;
         }
+
     }
 
 }

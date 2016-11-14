@@ -233,7 +233,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             imgBox_Display.Image = Image.FromFile(imgPath);
         }
 
-        protected void storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex)
+        public void storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex)
         {
             selectedItemIndex = sentCurrentItemIndex;
             invoiceGrab.InvoiceNumber = invoiceNumber;
