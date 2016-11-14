@@ -49,10 +49,17 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static double invTotalPrice { get; set; }
 
         public SalesInvoice invoiceGrab { get; set; }
-        
+
+        SalesInvoice[] salesInvoiceArray = new SalesInvoice[20];
+
+        //bool for when the saleSuccessful form is open
+        public static bool saleSuccessfulOpen;
 
         //an integer for the invoice number
         int invoiceNum = 000000;
+
+        //int for current order of the day
+        int currentOrder = 0;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -165,8 +172,40 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 sentProductPrice = productPrice;
 
                 nextForm.Show();
+                saleSuccessfulOpen = true;
+                
+                while (saleSuccessfulOpen == true)
+                {
+                    
+                }
 
-                prodStockArray[selectedItem] = sentInvoiceNumber;
+                invoiceGrab.InvoiceNumber = invInvoiceNumber;
+                invoiceGrab.prodName = invProdName;
+                invoiceGrab.prodPrice = invProdPrice;
+                invoiceGrab.prodStockDesired = invStockDesired;
+                invoiceGrab.orderTotalValue = invTotalPrice;
+
+                prodStockArray[selectedItem] = sentProdStock;
+
+                string ResponseString;
+                ResponseString = "You just sold the following:" +
+                "\n \n" +
+                "INVOICE NUMBER: " + invoiceGrab.InvoiceNumber + "\n" +
+                "PRODUCT NAME: " + invoiceGrab.prodName + "\n" +
+                "INDIVIDUAL PRICE" + invoiceGrab.prodPrice + "\n" +
+                "AMOUNT ORDERED: " + invoiceGrab.prodStockDesired + "\n" +
+                "TOTAL ORDER: " + invoiceGrab.orderTotalValue + "\n \n \n \n" +
+                "Thank you for placing this order!";
+
+                MessageBox.Show(ResponseString);
+
+                //putting InvoiceGrab into the salesInvoice Array
+                salesInvoiceArray[currentOrder] = invoiceGrab;
+
+                //incrementing currentOrder up by one
+                currentOrder++;
+
+
                 
             }
             else if (stockDesired > prodStock)
@@ -179,7 +218,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
 
         private void txt_AmountOrdered_TextChanged(object sender, EventArgs e)
-        {
+        {       
 
         }
 
