@@ -34,6 +34,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
 
         //public values for passing values between forms
+        public static int sentCurrentItemIndex { get; set; }
         public static int sentInvoiceNumber { get; set; }
         public static int sentProdStock { get; set; }
         public static int sentStockDesired { get; set; }
@@ -164,6 +165,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //comparing the stockDesired to the stockRemaining
             if (stockDesired <= prodStock)
             {
+                sentCurrentItemIndex = selectedItem;
                 sentInvoiceNumber = invoiceNum;
                 sentProdStock = prodStock;
                 sentProductName = productName;
@@ -174,10 +176,10 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 nextForm.Show();
                 saleSuccessfulOpen = true;
                 
-                while (saleSuccessfulOpen == true)
-                {
+                //while (saleSuccessfulOpen == true)
+                //{
                     
-                }
+                //}
 
                 invoiceGrab.InvoiceNumber = invInvoiceNumber;
                 invoiceGrab.prodName = invProdName;
@@ -199,12 +201,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
                 MessageBox.Show(ResponseString);
 
-                //putting InvoiceGrab into the salesInvoice Array
-                salesInvoiceArray[currentOrder] = invoiceGrab;
-
-                //incrementing currentOrder up by one
-                currentOrder++;
-
+                
 
                 
             }
@@ -234,6 +231,25 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             string imgPath = "../../Resources/" + prodPicArray[selectedItem];
 
             imgBox_Display.Image = Image.FromFile(imgPath);
+        }
+
+        protected void storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex)
+        {
+            selectedItemIndex = sentCurrentItemIndex;
+            invoiceGrab.InvoiceNumber = invoiceNumber;
+            invoiceGrab.prodName = productName;
+            invoiceGrab.prodPrice = productPrice;
+            invoiceGrab.prodStockDesired = stockDesired;
+            invoiceGrab.orderTotalValue = totalPrice;
+
+            prodStockArray[selectedItemIndex] = remainderStock;
+
+            //putting InvoiceGrab into the salesInvoice Array
+            salesInvoiceArray[currentOrder] = invoiceGrab;
+
+            //incrementing currentOrder up by one
+            currentOrder++;
+
         }
     }
 }

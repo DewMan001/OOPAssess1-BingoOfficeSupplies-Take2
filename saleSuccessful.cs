@@ -67,23 +67,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //reducing the stock
             Form1.sentProdStock = prodStock - stockDesired;
 
-            //creating new sales invoice object
-            SalesInvoice takeStock = new SalesInvoice();
-
-            //filling the object with the details
-            takeStock.InvoiceNumber = Form1.sentInvoiceNumber;
-            takeStock.prodName = Form1.sentProductName;
-            takeStock.prodPrice = Form1.sentProductPrice;
-            takeStock.prodStockDesired = Form1.sentStockDesired;
-            takeStock.orderTotalValue = Form1.sentTotalPrice;
-
-            //throwing the takeStock back to Form1
-            Form1.invInvoiceNumber = takeStock.InvoiceNumber;
-            Form1.invProdName = takeStock.prodName;
-            Form1.invProdPrice = takeStock.prodPrice;
-            Form1.invStockDesired = takeStock.prodStockDesired;
-            Form1.invTotalPrice = takeStock.orderTotalValue;
-
+          
             this.Close();
 
             Form1.saleSuccessfulOpen = false;
