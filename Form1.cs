@@ -28,7 +28,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         //the various arrays for the product attributes
         string[] prodNumArray = new string[20];
         string[] prodNameArray = new string[20];
-        int[] prodStockArray = new int[20];
+        static int[] prodStockArray = new int[20];
         double[] prodPriceArray = new double[20];
         string[] prodPicArray = new string[20];
 
@@ -49,9 +49,9 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static int invStockDesired { get; set; }
         public static double invTotalPrice { get; set; }
 
-        public SalesInvoice invoiceGrab { get; set; }
+        public static SalesInvoice invoiceGrab { get; set; }
 
-        SalesInvoice[] salesInvoiceArray = new SalesInvoice[20];
+        public static SalesInvoice[] salesInvoiceArray = new SalesInvoice[20];
 
         //bool for when the saleSuccessful form is open
         public static bool saleSuccessfulOpen;
@@ -60,7 +60,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         int invoiceNum = 000000;
 
         //int for current order of the day
-        int currentOrder = 0;
+        static int currentOrder = 0;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -233,7 +233,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             imgBox_Display.Image = Image.FromFile(imgPath);
         }
 
-        public void storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex)
+        public static void storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex)
         {
             selectedItemIndex = sentCurrentItemIndex;
             invoiceGrab.InvoiceNumber = invoiceNumber;
