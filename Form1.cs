@@ -97,7 +97,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //and a string for the file path
             string filePath;
             filePath = pathOfFile;
-            MessageBox.Show(filePath);
+            //MessageBox.Show(filePath);
 
             //and a streamreader to pipe in the data
             StreamReader pipeIn;
@@ -249,10 +249,30 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
         private void btn_closeOfBusiness_Click(object sender, EventArgs e)
         {
+            DateTime currentDateTime = DateTime.Now;
+
+            int daysStock = 0;
+            double daysValue = 0;
+
+            //for loop for deterimining the stock sold over the course of the day
+            for (int count = 0; count <= salesInvoiceArray.Length; count++)
+            {
+                daysStock = daysStock + salesInvoiceArray[count].prodStockDesired;
+            }
+
+            //for loop for determining the total value of the products sold that day
+            for (int count = 0; count <= salesInvoiceArray.Length; count++)
+            {
+                daysValue = daysValue + salesInvoiceArray[count].orderTotalValue;
+            }
+
             SalesInvoice cobFinalInvoice = new SalesInvoice();
 
             cobFinalInvoice.InvoiceNumber = 999;
-            cobFinalInvoice.prodName =
+            cobFinalInvoice.prodName = "Total Sales for: " + currentDateTime;
+            cobFinalInvoice.prodPrice = 0;
+            cobFinalInvoice.prodStockDesired = daysStock;
+            cobFinalInvoice.orderTotalValue = daysValue;
         }
     }
 }
