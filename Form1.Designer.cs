@@ -33,6 +33,7 @@
             this.lBox_ProductsDisplay = new System.Windows.Forms.ListBox();
             this.lbl_SalePrice = new System.Windows.Forms.Label();
             this.btn_Sale = new System.Windows.Forms.Button();
+            this.btn_closeOfBusiness = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox_Display)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,11 +89,22 @@
             this.btn_Sale.UseVisualStyleBackColor = true;
             this.btn_Sale.Click += new System.EventHandler(this.btn_Sale_Click);
             // 
+            // btn_closeOfBusiness
+            // 
+            this.btn_closeOfBusiness.Location = new System.Drawing.Point(520, 339);
+            this.btn_closeOfBusiness.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_closeOfBusiness.Name = "btn_closeOfBusiness";
+            this.btn_closeOfBusiness.Size = new System.Drawing.Size(206, 43);
+            this.btn_closeOfBusiness.TabIndex = 5;
+            this.btn_closeOfBusiness.Text = "Close of Business";
+            this.btn_closeOfBusiness.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 443);
+            this.Controls.Add(this.btn_closeOfBusiness);
             this.Controls.Add(this.btn_Sale);
             this.Controls.Add(this.lbl_SalePrice);
             this.Controls.Add(this.label1);
@@ -111,8 +123,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lBox_ProductsDisplay;
         private System.Windows.Forms.Label lbl_SalePrice;
-        private System.Windows.Forms.Button btn_Sale;
         public System.Windows.Forms.PictureBox imgBox_Display;
+        private System.Windows.Forms.Button btn_Sale;
+        private System.Windows.Forms.Button btn_closeOfBusiness;
     }
 }
 

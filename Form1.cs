@@ -177,7 +177,6 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
                 while (saleSuccessfulOpen == false)
                 {
-
                     string ResponseString = "You just sold the following:" +
                     "\n \n" +
                     "INVOICE NUMBER: " + invoiceGrab.InvoiceNumber + "\n" +
