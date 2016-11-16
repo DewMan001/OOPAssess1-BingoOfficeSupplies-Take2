@@ -98,6 +98,7 @@
             this.btn_closeOfBusiness.TabIndex = 5;
             this.btn_closeOfBusiness.Text = "Close of Business";
             this.btn_closeOfBusiness.UseVisualStyleBackColor = true;
+            this.btn_closeOfBusiness.Click += new System.EventHandler(this.btn_closeOfBusiness_Click);
             // 
             // Form1
             // 

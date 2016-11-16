@@ -20,6 +20,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //string for the path of products.txt
             string productsPath = "../../Resources/Products.txt";
             buildArray(productsPath);
+
+            btn_closeOfBusiness.Hide();
         }
 
 
@@ -65,6 +67,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         private void Form1_Load(object sender, EventArgs e)
         {
            lBox_ProductsDisplay.SelectedIndex = 1;
+          
         }
 
         
@@ -191,7 +194,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                     saleSuccessfulOpen = true;
                 }
 
-                
+                btn_closeOfBusiness.Show();
 
                 
 
@@ -242,6 +245,14 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //incrementing currentOrder up by one
             currentOrder++;
 
+        }
+
+        private void btn_closeOfBusiness_Click(object sender, EventArgs e)
+        {
+            SalesInvoice cobFinalInvoice = new SalesInvoice();
+
+            cobFinalInvoice.InvoiceNumber = 999;
+            cobFinalInvoice.prodName =
         }
     }
 }
