@@ -49,7 +49,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static int invStockDesired { get; set; }
         public static double invTotalPrice { get; set; }
 
-        public static SalesInvoice invoiceGrab { get; set; }
+        public static SalesInvoice invoiceGrab = new SalesInvoice();
 
         public static SalesInvoice[] salesInvoiceArray = new SalesInvoice[20];
 
@@ -57,7 +57,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static bool saleSuccessfulOpen;
 
         //an integer for the invoice number
-        int invoiceNum = 000000;
+        public static int invoiceNum = 000000;
 
         //int for current order of the day
         static int currentOrder = 0;
@@ -173,33 +173,26 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 sentTotalPrice = fullPrice;
                 sentProductPrice = productPrice;
 
-                nextForm.Show();
-                saleSuccessfulOpen = true;
+                nextForm.ShowDialog();
+
+                while (saleSuccessfulOpen == false)
+                {
+
+                    string ResponseString = "You just sold the following:" +
+                    "\n \n" +
+                    "INVOICE NUMBER: " + invoiceGrab.InvoiceNumber + "\n" +
+                    "PRODUCT NAME: " + invoiceGrab.prodName + "\n" +
+                    "INDIVIDUAL PRICE" + invoiceGrab.prodPrice + "\n" +
+                    "AMOUNT ORDERED: " + invoiceGrab.prodStockDesired + "\n" +
+                    "TOTAL ORDER: " + invoiceGrab.orderTotalValue + "\n \n \n \n" +
+                    "Thank you for placing this order!";
+
+                    MessageBox.Show(ResponseString);
+
+                    saleSuccessfulOpen = true;
+                }
+
                 
-                //while (saleSuccessfulOpen == true)
-                //{
-                    
-                //}
-
-                invoiceGrab.InvoiceNumber = invInvoiceNumber;
-                invoiceGrab.prodName = invProdName;
-                invoiceGrab.prodPrice = invProdPrice;
-                invoiceGrab.prodStockDesired = invStockDesired;
-                invoiceGrab.orderTotalValue = invTotalPrice;
-
-                prodStockArray[selectedItem] = sentProdStock;
-
-                string ResponseString;
-                ResponseString = "You just sold the following:" +
-                "\n \n" +
-                "INVOICE NUMBER: " + invoiceGrab.InvoiceNumber + "\n" +
-                "PRODUCT NAME: " + invoiceGrab.prodName + "\n" +
-                "INDIVIDUAL PRICE" + invoiceGrab.prodPrice + "\n" +
-                "AMOUNT ORDERED: " + invoiceGrab.prodStockDesired + "\n" +
-                "TOTAL ORDER: " + invoiceGrab.orderTotalValue + "\n \n \n \n" +
-                "Thank you for placing this order!";
-
-                MessageBox.Show(ResponseString);
 
                 
 
@@ -245,7 +238,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             prodStockArray[selectedItemIndex] = remainderStock;
 
             //putting InvoiceGrab into the salesInvoice Array
-            salesInvoiceArray[currentOrder] = invoiceGrab;
+           salesInvoiceArray[currentOrder] = invoiceGrab;
 
             //incrementing currentOrder up by one
             currentOrder++;

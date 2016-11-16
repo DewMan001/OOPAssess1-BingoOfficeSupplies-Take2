@@ -68,11 +68,13 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             Form1.sentProdStock = prodStock - stockDesired;
 
 
-            Form1.storeData(Form1.sentInvoiceNumber, Form1.sentProductName, Form1.sentProductPrice, Form1.sentStockDesired, Form1.sentTotalPrice, Form1.sentProdStock, Form1.sentCurrentItemIndex);
+            Form1.storeData(Form1.invoiceNum, Form1.sentProductName, Form1.sentProductPrice, Form1.sentStockDesired, Form1.sentTotalPrice, Form1.sentProdStock, Form1.sentCurrentItemIndex);
+
+            Form1.saleSuccessfulOpen = false;
 
             this.Close();
 
-            Form1.saleSuccessfulOpen = false;
+            
         }
     }
 }
