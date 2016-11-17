@@ -273,6 +273,32 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             cobFinalInvoice.prodPrice = 0;
             cobFinalInvoice.prodStockDesired = daysStock;
             cobFinalInvoice.orderTotalValue = daysValue;
+
+            StreamWriter overWriteProducts = new StreamWriter("../../Resources/Products.txt");
+
+            for (int count = 0; count <= prodNumArray.Length; count++)
+            {
+                if (prodNumArray[count] == null || prodNameArray[count] == null || prodStockArray[count] == null || prodPriceArray == null)
+                {
+                    count = prodNumArray.Length + 1;
+                }
+                else
+                {
+                    string newLine;
+                    newLine = prodNumArray[count] + "," + prodNameArray[count] + "," + prodStockArray[count] + "," + prodPriceArray[count] + "," + prodPicArray[count];
+                }
+            }
+
+            //getting in the date time for the date review sheet
+            DateTime todaysDate = DateTime.Now;
+
+            //turning that date into a string
+            string todaysDateString = todaysDate.ToLongDateString();
+
+            StreamWriter writeDaysReview = new StreamWriter("../../Resources/salesReview" + todaysDateString + ".txt");
+
+
+
         }
     }
 }
