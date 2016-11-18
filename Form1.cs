@@ -278,7 +278,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             for (int count = 0; count <= prodNumArray.Length; count++)
             {
-                if (prodNumArray[count] == null || prodNameArray[count] == null || prodStockArray[count] == null || prodPriceArray == null)
+                if (prodNumArray[count] == null || prodNameArray[count] == null || prodStockArray[count] == Int32.Parse("") || prodPriceArray == null)
                 {
                     count = prodNumArray.Length + 1;
                 }
@@ -286,6 +286,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 {
                     string newLine;
                     newLine = prodNumArray[count] + "," + prodNameArray[count] + "," + prodStockArray[count] + "," + prodPriceArray[count] + "," + prodPicArray[count];
+
+                    overWriteProducts.WriteLine(newLine);
                 }
             }
 
@@ -297,9 +299,29 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             StreamWriter writeDaysReview = new StreamWriter("../../Resources/salesReview" + todaysDateString + ".txt");
 
-            for (int count = 0; count <=          bnm)
+            //string for the contents of final COB salesInvoice
+            string COBfinalStringInvoice = cobFinalInvoice.ToString() + "," + cobFinalInvoice.prodName + "," + cobFinalInvoice.prodPrice + "," + cobFinalInvoice.prodStockDesired + "," + cobFinalInvoice.orderTotalValue;
 
+            for (int count = 0; count <= salesInvoiceArray.Length; count ++)
+            {
+                if (salesInvoiceArray[count] == null)
+                {
+                    count = salesInvoiceArray.Length + 1;
+                    
+                }
 
+                else
+                {
+                    string newLine;
+                    newLine = salesInvoiceArray[count].InvoiceNumber.ToString() + "," + salesInvoiceArray[count].prodName + "," + salesInvoiceArray[count].prodPrice + "," + salesInvoiceArray[count].prodStockDesired + "," + salesInvoiceArray[count].orderTotalValue;
+                    writeDaysReview.WriteLine(newLine);
+                }
+
+                writeDaysReview.WriteLine(COBfinalStringInvoice);
+
+            }
+
+            MessageBox.Show("Thank you for using this application! \n Your files have been generated. \n \n Have a good night! See you tomorrow!");
 
         }
     }
