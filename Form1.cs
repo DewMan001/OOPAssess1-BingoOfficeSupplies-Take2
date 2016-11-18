@@ -297,6 +297,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             StreamWriter writeDaysReview = new StreamWriter("../../Resources/salesReview" + todaysDateString + ".txt");
 
+            for (int count = 0; count <=          bnm)
+
 
 
         }
