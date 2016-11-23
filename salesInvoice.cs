@@ -26,9 +26,9 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public int? prodStockDesired { get; set; }
         public double orderTotalValue { get; set; }
 
-        public int calculateTotalValue(int individualPrice, int prodStockDesired)
+        public virtual double  calculateTotalValue(int individualPrice, int prodStockDesired)
         {
-            int totalValue;
+            double totalValue;
             totalValue = individualPrice * prodStockDesired;
             return totalValue;
         }
