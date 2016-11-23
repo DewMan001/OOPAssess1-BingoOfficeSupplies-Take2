@@ -11,6 +11,7 @@ using System.IO;
 
 namespace OOPAssess1_BingoOfficeSupplies_Take2
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -242,7 +243,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             prodStockArray[selectedItemIndex] = remainderStock;
 
             //putting InvoiceGrab into the salesInvoice Array
-           salesInvoiceArray[currentInvoice] = invoiceGrab;
+           salesInvoiceArray[currentInvoice] = salesInvoice;
 
             currentInvoice++;
 
