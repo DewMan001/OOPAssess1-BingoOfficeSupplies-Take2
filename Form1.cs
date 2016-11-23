@@ -53,6 +53,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
         public static SalesInvoice invoiceGrab = new SalesInvoice();
 
+        public static int currentInvoice = 0;
+
         public static SalesInvoice[] salesInvoiceArray = new SalesInvoice[20];
 
         //bool for when the saleSuccessful form is open
@@ -228,22 +230,26 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             imgBox_Display.Image = Image.FromFile(imgPath);
         }
 
-        public static void storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex)
+        public static SalesInvoice storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex, SalesInvoice salesInvoice )
         {
             selectedItemIndex = sentCurrentItemIndex;
-            invoiceGrab.InvoiceNumber = invoiceNumber;
-            invoiceGrab.prodName = productName;
-            invoiceGrab.prodPrice = productPrice;
-            invoiceGrab.prodStockDesired = stockDesired;
-            invoiceGrab.orderTotalValue = totalPrice;
+            salesInvoice.InvoiceNumber = invoiceNumber;
+            salesInvoice.prodName = productName;
+            salesInvoice.prodPrice = productPrice;
+            salesInvoice.prodStockDesired = stockDesired;
+            salesInvoice.orderTotalValue = totalPrice;
 
             prodStockArray[selectedItemIndex] = remainderStock;
 
             //putting InvoiceGrab into the salesInvoice Array
-           salesInvoiceArray[currentOrder] = invoiceGrab;
+           salesInvoiceArray[currentInvoice] = invoiceGrab;
+
+            currentInvoice++;
 
             //incrementing currentOrder up by one
             currentOrder++;
+
+            return salesInvoice;
 
         }
 
@@ -253,18 +259,11 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             int daysStock = 0;
             double daysValue = 0;
+            int count = 0;
 
-            //for loop for deterimining the stock sold over the course of the day
-            for (int count = 0; count <= salesInvoiceArray.Length; count++)
-            {
-                daysStock = daysStock + salesInvoiceArray[count].prodStockDesired;
-            }
+            
 
-            //for loop for determining the total value of the products sold that day
-            for (int count = 0; count <= salesInvoiceArray.Length; count++)
-            {
-                daysValue = daysValue + salesInvoiceArray[count].orderTotalValue;
-            }
+           
 
             SalesInvoice cobFinalInvoice = new SalesInvoice();
 
@@ -274,22 +273,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             cobFinalInvoice.prodStockDesired = daysStock;
             cobFinalInvoice.orderTotalValue = daysValue;
 
-            StreamWriter overWriteProducts = new StreamWriter("../../Resources/Products.txt");
-
-            for (int count = 0; count <= prodNumArray.Length; count++)
-            {
-                if (prodNumArray[count] == null || prodNameArray[count] == null || prodStockArray[count] == Int32.Parse("") || prodPriceArray == null)
-                {
-                    count = prodNumArray.Length + 1;
-                }
-                else
-                {
-                    string newLine;
-                    newLine = prodNumArray[count] + "," + prodNameArray[count] + "," + prodStockArray[count] + "," + prodPriceArray[count] + "," + prodPicArray[count];
-
-                    overWriteProducts.WriteLine(newLine);
-                }
-            }
+            StreamWriter overWriteProducts = new StreamWriter("../../Resources/Products2.txt");
 
             //getting in the date time for the date review sheet
             DateTime todaysDate = DateTime.Now;
@@ -297,31 +281,42 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             //turning that date into a string
             string todaysDateString = todaysDate.ToLongDateString();
 
-            StreamWriter writeDaysReview = new StreamWriter("../../Resources/salesReview" + todaysDateString + ".txt");
+            StreamWriter writeDaysReview = new StreamWriter("../../Resources/salesReviews/salesReview" + todaysDateString + ".txt");
 
             //string for the contents of final COB salesInvoice
-            string COBfinalStringInvoice = cobFinalInvoice.ToString() + "," + cobFinalInvoice.prodName + "," + cobFinalInvoice.prodPrice + "," + cobFinalInvoice.prodStockDesired + "," + cobFinalInvoice.orderTotalValue;
+            string COBfinalStringInvoice = String.Format("{0},{1},{2},{3},{4}", cobFinalInvoice.ToString(), cobFinalInvoice.prodName, cobFinalInvoice.prodPrice, cobFinalInvoice.prodStockDesired, cobFinalInvoice.orderTotalValue);
 
-            for (int count = 0; count <= salesInvoiceArray.Length; count ++)
+
+            for(int counter = 0; counter < prodNameArray.Length; counter++)
             {
-                if (salesInvoiceArray[count] == null)
-                {
-                    count = salesInvoiceArray.Length + 1;
-                    
-                }
+                //overwriting to the products.txt file
+                string newLine;
+                newLine = String.Format("{0},{1},{2},{3},{4}", prodNumArray[counter], prodNameArray[counter], prodStockArray[counter], prodPriceArray[counter], prodPicArray[counter]);
 
-                else
-                {
-                    string newLine;
-                    newLine = salesInvoiceArray[count].InvoiceNumber.ToString() + "," + salesInvoiceArray[count].prodName + "," + salesInvoiceArray[count].prodPrice + "," + salesInvoiceArray[count].prodStockDesired + "," + salesInvoiceArray[count].orderTotalValue;
-                    writeDaysReview.WriteLine(newLine);
-                }
+                overWriteProducts.WriteLine(newLine);
+            }
+            overWriteProducts.Close();
 
-                writeDaysReview.WriteLine(COBfinalStringInvoice);
+
+            for (int counter2 = 0; counter2 < salesInvoiceArray.Length; counter2++)
+            {
+                if(salesInvoiceArray[counter2] != null)
+                {
+                    daysStock = daysStock + int.Parse(salesInvoiceArray[count].prodStockDesired.ToString());
+                    daysValue = daysValue + salesInvoiceArray[count].orderTotalValue;
+
+                    string newLine2;
+                    newLine2 = String.Format("{0},{1},{2},{3},{4}", salesInvoiceArray[counter2].InvoiceNumber, salesInvoiceArray[counter2].prodName, salesInvoiceArray[counter2].prodPrice, salesInvoiceArray[counter2].prodStockDesired, salesInvoiceArray[counter2].orderTotalValue);
+                    writeDaysReview.WriteLine(newLine2);
+                }
 
             }
+            writeDaysReview.WriteLine(COBfinalStringInvoice);
+            writeDaysReview.Close();
 
-            MessageBox.Show("Thank you for using this application! \n Your files have been generated. \n \n Have a good night! See you tomorrow!");
+            MessageBox.Show("Thank you for using this application! \n Your files have been generated. \n \n See you tomorrow!");
+
+            this.Close();
 
         }
     }
