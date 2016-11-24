@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace OOPAssess1_BingoOfficeSupplies_Take2
 {
-    class bigSpender : SalesInvoice
+    public class bigSpender : SalesInvoice
     {
-        string customerName { get; set; }
-        int customerPhoneNum { get; set; }
-        string customerAddress1 { get; set; }
-        string customerEmail { get; set; }
-        double bigSpenderDiscount { get; set; }
+        public string customerName { get; set; }
+        public int customerPhoneNum { get; set; }
+        public string customerAddress1 { get; set; }
+        public string customerEmail { get; set; }
+        public double bigSpenderDiscount { get; set; }
         
-        bigSpender()
+        public bigSpender()
         {
             customerName = "";
             customerPhoneNum = 0;

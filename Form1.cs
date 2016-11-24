@@ -61,8 +61,21 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         //bool for when the saleSuccessful form is open
         public static bool saleSuccessfulOpen;
 
+        //bool for if the customer is a BigSpender
+        public static bool isCusBigSpender;
+
         //an integer for the invoice number
         public static int invoiceNum = 000000;
+
+        int bigSpender = 0;
+
+        //public variable for the bigSpender in saleSuccessful.cs
+        public static bigSpender spenderStore = new bigSpender();
+
+        //an array for our bigSpenders
+        public bigSpender[] bigSpenderArray = new bigSpender[20];
+
+
 
         //int for current order of the day
         static int currentOrder = 0;
@@ -191,6 +204,11 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                     "AMOUNT ORDERED: " + invoiceGrab.prodStockDesired + "\n" +
                     "TOTAL ORDER: " + invoiceGrab.orderTotalValue + "\n \n \n \n" +
                     "Thank you for placing this order!";
+
+                    if(isCusBigSpender == true)
+                    {
+
+                    }
 
                     MessageBox.Show(ResponseString);
 

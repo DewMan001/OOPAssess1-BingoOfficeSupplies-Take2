@@ -68,11 +68,22 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             SalesInvoice invoiceGrab = new SalesInvoice();
 
+            bigSpender bigBigWinner = new bigSpender(); 
+
             //reducing the stock
             Form1.sentProdStock = prodStock - stockDesired;
 
 
             invoiceGrab = Form1.storeData(Form1.invoiceNum, Form1.sentProductName, Form1.sentProductPrice, Form1.sentStockDesired, Form1.sentTotalPrice, Form1.sentProdStock, Form1.sentCurrentItemIndex, invoiceGrab);
+
+            if(invoiceGrab.orderTotalValue >= 20)
+            {
+                bigBigWinner.customerName = Microsoft.VisualBasic.Interaction.InputBox("What is the customer's name?", "Customer's Name", "", 0, 0);
+                bigBigWinner.customerEmail = Microsoft.VisualBasic.Interaction.InputBox("What is the customer's email address?", "Customer's Email", "", 0, 0);
+
+                Form1.spenderStore = bigBigWinner;
+                
+            }
 
             Form1.invoiceGrab = invoiceGrab;
 
