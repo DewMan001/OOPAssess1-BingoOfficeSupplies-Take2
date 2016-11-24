@@ -341,10 +341,14 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             for(int counter3 = 0; counter3 < bigSpenderArray.Length; counter3++)
             {
-                string printToBigSpenders;
-                printToBigSpenders = String.Format("{0},{1},{2},{3}", bigSpenderArray[counter3].customerName, bigSpenderArray[counter3].customerPhoneNum, bigSpenderArray[counter3].customerAddress1, bigSpenderArray[counter3].customerEmail);
+                if(bigSpenderArray[counter3] != null)
+                {
+                    string printToBigSpenders;
+                    printToBigSpenders = String.Format("{0},{1},{2},{3}", bigSpenderArray[counter3].customerName, bigSpenderArray[counter3].customerPhoneNum, bigSpenderArray[counter3].customerAddress1, bigSpenderArray[counter3].customerEmail);
 
-                printBigSpenders.WriteLine(printToBigSpenders);
+                    printBigSpenders.WriteLine(printToBigSpenders);
+                }
+                    
             }
             printBigSpenders.Close();
 

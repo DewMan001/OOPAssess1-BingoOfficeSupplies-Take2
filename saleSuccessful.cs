@@ -82,6 +82,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 bigBigWinner.customerEmail = Microsoft.VisualBasic.Interaction.InputBox("What is the customer's email address?", "Customer's Email", "", 0, 0);
 
                 Form1.spenderStore = bigBigWinner;
+
+                Form1.isCusBigSpender = true;
                 
             }
 

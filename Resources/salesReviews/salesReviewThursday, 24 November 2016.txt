@@ -1,0 +1,3 @@
+2,ruler,0.55,90,49.5
+3,Eraser,0.99,22,21.78
+OOPAssess1_BingoOfficeSupplies_Take2.SalesInvoice,Total Sales for: 24/11/2016 9:42:46 PM,0,0,0
