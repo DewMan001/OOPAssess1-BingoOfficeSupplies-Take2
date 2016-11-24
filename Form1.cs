@@ -336,6 +336,18 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             writeDaysReview.WriteLine(COBfinalStringInvoice);
             writeDaysReview.Close();
 
+            //streamwriter for printing to the bigSpender sheet
+            StreamWriter printBigSpenders = new StreamWriter("../../Resources/bigSpendersFiles/bigSpenders" + todaysDateString + ".txt");
+
+            for(int counter3 = 0; counter3 < bigSpenderArray.Length; counter3++)
+            {
+                string printToBigSpenders;
+                printToBigSpenders = String.Format("{0},{1},{2},{3}", bigSpenderArray[counter3].customerName, bigSpenderArray[counter3].customerPhoneNum, bigSpenderArray[counter3].customerAddress1, bigSpenderArray[counter3].customerEmail);
+
+                printBigSpenders.WriteLine(printToBigSpenders);
+            }
+            printBigSpenders.Close();
+
             MessageBox.Show("Thank you for using this application! \n Your files have been generated. \n \n See you tomorrow!");
 
             this.Close();
