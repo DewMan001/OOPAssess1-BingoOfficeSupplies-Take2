@@ -67,7 +67,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         //an integer for the invoice number
         public static int invoiceNum = 000000;
 
-        int bigSpender = 0;
+        int bigSpenderCount = 0;
 
         //public variable for the bigSpender in saleSuccessful.cs
         public static bigSpender spenderStore = new bigSpender();
@@ -207,7 +207,10 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
                     if(isCusBigSpender == true)
                     {
+                        bigSpenderArray[bigSpenderCount] = spenderStore;
+                        bigSpenderCount++;
 
+                        isCusBigSpender = false;
                     }
 
                     MessageBox.Show(ResponseString);
