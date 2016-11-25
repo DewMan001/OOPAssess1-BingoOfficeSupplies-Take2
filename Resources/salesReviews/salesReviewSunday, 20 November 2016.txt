@@ -1,0 +1,2 @@
+AX012,calculator,104,5.95,calculator.jpg
+OOPAssess1_BingoOfficeSupplies_Take2.SalesInvoice,Total Sales for: 20/11/2016 2:06:20 PM,0,0,0

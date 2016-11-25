@@ -1,0 +1,2 @@
+1,calculator,5.95,5,29.75
+OOPAssess1_BingoOfficeSupplies_Take2.SalesInvoice,Total Sales for: 25/11/2016 5:16:47 PM,0,0,0

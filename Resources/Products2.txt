@@ -1,0 +1,20 @@
+AX012,calculator,104,5.95,calculator.jpg
+AZ052,thumb drive 10gb,20,7.2,ThumbDrive.jpg
+BA074,hole punch,40,4.95,HolePunch.jpg
+BH022,ruler,5,0.55,ruler.jpg
+BT004,Eraser,44,0.99,Eraser.jpg
+BZ066,Pen,52,3.95,pen.jpg
+CA014,Stapler,12,4.95,stapler.jpg
+CB003,Box of paper clips,44,2.5,paperclip.jpg
+CX011,CD box of 10,112,3.95,cd.jpg
+CZ081,pencil,208,0.4,pencil.jpg                                                                                                                                                                                                                                                                        
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
+,,0,0,
