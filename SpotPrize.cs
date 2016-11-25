@@ -15,7 +15,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             prodOfDayCode = "";
         }
 
-        public override double calculateTotalValue(int individualPrice, int prodStockDesired)
+        public override double calculateTotalValue(double individualPrice, int prodStockDesired)
         {
             double totalValue;
 

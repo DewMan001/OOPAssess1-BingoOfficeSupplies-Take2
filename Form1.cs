@@ -29,7 +29,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
 
         //the various arrays for the product attributes
-        string[] prodNumArray = new string[20];
+        public string[] prodNumArray = new string[20];
         string[] prodNameArray = new string[20];
         static int[] prodStockArray = new int[20];
         double[] prodPriceArray = new double[20];
@@ -40,6 +40,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public static int sentCurrentItemIndex { get; set; }
         public static int sentInvoiceNumber { get; set; }
         public static int sentProdStock { get; set; }
+        public static string sentProdNum { get; set; }
         public static int sentStockDesired { get; set; }
         public static string sentProductName { get; set; }
         public static double sentTotalPrice { get; set; }
@@ -67,6 +68,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         //an integer for the invoice number
         public static int invoiceNum = 000000;
 
+        string prodOfDay;
+        
         int bigSpenderCount = 0;
 
         //public variable for the bigSpender in saleSuccessful.cs
@@ -75,7 +78,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         //an array for our bigSpenders
         public bigSpender[] bigSpenderArray = new bigSpender[20];
 
-
+        
 
         //int for current order of the day
         static int currentOrder = 0;
@@ -83,7 +86,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         private void Form1_Load(object sender, EventArgs e)
         {
            lBox_ProductsDisplay.SelectedIndex = 1;
-          
+           
         }
 
         
@@ -148,7 +151,14 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                     count++;
 
                     lBox_ProductsDisplay.Items.Add(lineArray[1]);
+
+                    
+
+                    
                 }
+
+                //picking the prodOfDay
+                prodOfDay = prodNumArray[pickProdOfDay()];
 
             }
 
@@ -191,6 +201,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                 sentStockDesired = stockDesired;
                 sentTotalPrice = fullPrice;
                 sentProductPrice = productPrice;
+                spenderStore.prodNum = sentProdNum;
 
                 nextForm.ShowDialog();
 
@@ -212,7 +223,13 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
                         isCusBigSpender = false;
 
-                        if spenderStore.
+                        SpotPrize spotPrizeExample = new SpotPrize();
+
+                        if (spenderStore.prodNum == prodOfDay)
+                        {
+                            MessageBox.Show("DING DING DING! Product of the day selected! You get half off!");
+                            spenderStore.orderTotalValue = spotPrizeExample.calculateTotalValue(spenderStore.prodPrice, spenderStore.prodStockDesired);
+                        }
                     }
 
                     MessageBox.Show(ResponseString);
@@ -254,7 +271,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             imgBox_Display.Image = Image.FromFile(imgPath);
         }
 
-        public static SalesInvoice storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex, SalesInvoice salesInvoice )
+        public static SalesInvoice storeData(int invoiceNumber, string productName, double productPrice, int stockDesired, double totalPrice, int remainderStock, int selectedItemIndex, SalesInvoice salesInvoice, string prodNum )
         {
             selectedItemIndex = sentCurrentItemIndex;
             salesInvoice.InvoiceNumber = invoiceNumber;
@@ -359,5 +376,18 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             this.Close();
 
         }
+
+
+        private int pickProdOfDay()
+        {
+            int prodNumArrayLocation;
+            Random randoPick = new Random();
+
+            prodNumArrayLocation = randoPick.Next(0, 19);
+
+            return prodNumArrayLocation;
+        }
     }
+
+    
 }

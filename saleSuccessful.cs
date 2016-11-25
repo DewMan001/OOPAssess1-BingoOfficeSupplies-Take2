@@ -24,6 +24,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
 
             //pulling in all the variables from the first form
             int invoiceNumber = Form1.sentInvoiceNumber;
+            string productNumber = Form1.sentProdNum;
             int productStock = Form1.sentProdStock;
             int stockDesired = Form1.sentStockDesired;
             string productName = Form1.sentProductName;
@@ -34,6 +35,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             string lblText;
             lblText = "ORDER NUMBER: " + invoiceNumber
                 + "\n \n PRODUCT: " + productName
+                + "\n \n PRODUCT NUMBER" + productNumber
                 + "\n AMOUNT BEING ORDERED: " + stockDesired
                 + "\n STOCK REMAINING: " + productStock
                 + "\n INDIVIDUAL UNIT PRICE: " + productPrice
@@ -48,6 +50,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         {
             Form1.sentInvoiceNumber = 0;
             Form1.sentProdStock = 0;
+            Form1.sentProdNum = "";
             Form1.sentStockDesired = 0;
             Form1.sentProductName = "";
             Form1.sentProductPrice = 0.0;
@@ -74,7 +77,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             Form1.sentProdStock = prodStock - stockDesired;
 
 
-            invoiceGrab = Form1.storeData(Form1.invoiceNum, Form1.sentProductName, Form1.sentProductPrice, Form1.sentStockDesired, Form1.sentTotalPrice, Form1.sentProdStock, Form1.sentCurrentItemIndex, invoiceGrab);
+            invoiceGrab = Form1.storeData(Form1.invoiceNum, Form1.sentProductName, Form1.sentProductPrice, Form1.sentStockDesired, Form1.sentTotalPrice, Form1.sentProdStock, Form1.sentCurrentItemIndex, invoiceGrab, Form1.sentProdNum);
 
             if(invoiceGrab.orderTotalValue >= 20)
             {

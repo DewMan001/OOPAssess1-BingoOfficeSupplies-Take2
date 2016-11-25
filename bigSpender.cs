@@ -23,11 +23,10 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             bigSpenderDiscount = 0.05;
         }
 
-        public override double calculateTotalValue(int individualPrice, int prodStockDesired)
+        public override double calculateTotalValue(double individualPrice, int prodStockDesired)
         {
-            int totalValue;
-            totalValue = (individualPrice * prodStockDesired);
-            return totalValue;
+            double totalPrice = base.calculateTotalValue(individualPrice, prodStockDesired);
+            return totalPrice;
         }
     }
 }
