@@ -26,7 +26,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
         public override double calculateTotalValue(int individualPrice, int prodStockDesired)
         {
             int totalValue;
-            totalValue = individualPrice * prodStockDesired;
+            totalValue = (individualPrice * prodStockDesired);
             return totalValue;
         }
     }

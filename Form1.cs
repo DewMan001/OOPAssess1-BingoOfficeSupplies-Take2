@@ -295,7 +295,7 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
             cobFinalInvoice.prodStockDesired = daysStock;
             cobFinalInvoice.orderTotalValue = daysValue;
 
-            StreamWriter overWriteProducts = new StreamWriter("../../Resources/Products2.txt");
+            StreamWriter overWriteProducts = new StreamWriter("../../Resources/Products.txt");
 
             //getting in the date time for the date review sheet
             DateTime todaysDate = DateTime.Now;
