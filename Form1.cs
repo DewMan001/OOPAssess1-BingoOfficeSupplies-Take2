@@ -211,6 +211,8 @@ namespace OOPAssess1_BingoOfficeSupplies_Take2
                         bigSpenderCount++;
 
                         isCusBigSpender = false;
+
+                        if spenderStore.
                     }
 
                     MessageBox.Show(ResponseString);
